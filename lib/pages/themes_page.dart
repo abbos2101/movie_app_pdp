@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/pages/bloc/counter/counter_page.dart';
 import 'package:movie_app/pages/set_state/list_package_page.dart';
-import 'package:movie_app/pages/set_state/list_page.dart';
+import 'package:movie_app/pages/bloc/list/list_page.dart';
 
 class ThemesPage extends StatefulWidget {
   const ThemesPage({super.key});
@@ -26,8 +27,24 @@ class _ThemesPageState extends State<ThemesPage> {
                   );
                 },
                 child: const Text("setState")),
-            TextButton(onPressed: () {}, child: const Text("Provider")),
-            TextButton(onPressed: () {}, child: const Text("Bloc")),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const ListPage()),
+                );
+              },
+              child: const Text("Bloc"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const CounterPage()),
+                );
+              },
+              child: const Text("Counter Bloc"),
+            ),
           ],
         ),
       ),
